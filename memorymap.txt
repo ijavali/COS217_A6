@@ -1,0 +1,24 @@
+Data
+
+Address     Content     Description
+0x420044    0x00000044  Grade is initialized to 'D'
+
+BSS
+
+Address     Description
+0x420058    Address of name[0]
+
+Stack
+
+Offset      Description
+0           x19 
+8           x20
+16          x21
+24          x30
+32          buf
+40          buf
+48          buf
+56          buf
+64          buf
+72          buf
+80          
