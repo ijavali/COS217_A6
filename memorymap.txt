@@ -6,7 +6,7 @@ Address     Content     Description
 BSS
 
 Address     Description
-0x420058    Address of name[0]
+0x420058    Address sof name[0]
 
 Stack
 
