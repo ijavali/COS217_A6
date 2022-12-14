@@ -14,14 +14,14 @@ Offset      Description
 0           x19 
 8           x20
 16          x21
-24          x30
-32          buf
-40          buf
-48          buf
-56          buf
-64          buf
-72          buf
-80     
+24          x30 (readString)
+32          buf [0, 7]
+40          buf [8, 15]
+48          buf [16, 23]
+56          buf [24, 31]
+64          buf [32, 39]
+72          buf [40, 47]
+80          x30 (getName)
 
 
 // Prolog

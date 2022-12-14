@@ -20,6 +20,18 @@ static void setField(unsigned int uiSrc, unsigned int uiSrcStartBit,
                      unsigned int uiNumBits)
 {
    /* Your code here */
+   /* the amount of bits needed to be shifted to obtain wanted bits from uiSrc*/
+   unsigned int uiShiftAmount;
+   uiShiftAmount = 32 - uiNumBits;
+   /*get rid of all bits that are right of uiSrcStartBit*/
+   uiSrc = uiSrc >> uiSrcStartBit;
+   /*obtain only the wanted bits taken from uiSrc */
+   uiSrc = uiSrc << uiShiftAmount;
+   uiSrc = uiSrc >> uiShiftAmount;
+   /*move uiSrc such that it aligns with puiDest starting at uiDestStartBit*/
+   uiSrc = uiSrc << uiDestStartBit;
+   /*set uiNumBits starting at uiDestStartBit with uiSrc*/
+   *puiDest = uiSrc | *puiDest;
 
 }
 
@@ -28,6 +40,21 @@ static void setField(unsigned int uiSrc, unsigned int uiSrcStartBit,
 unsigned int MiniAssembler_mov(unsigned int uiReg, int iImmed)
 {
    /* Your code here */
+
+   unsigned int uiInstr;
+
+   uiInstr = 0x00000000;
+
+   /* add register */
+   setField(uiReg, 0, &uiInstr, 0, 5);
+
+   /* change bits from 30 to 21 to 10 100101 00 */
+   setField(660, 0, &uiInstr, 21, 10);
+
+   /* change bits from 20 to 5 to iImmed*/
+   setField(iImmed, 0, &uiInstr, 5, 16);
+
+   return uiInstr;
 
 }
 
@@ -61,6 +88,27 @@ unsigned int MiniAssembler_strb(unsigned int uiFromReg,
 {
    /* Your code here */
 
+   unsigned int uiInstr;
+   unsigned int uiDisp;
+
+   uiInstr = 0x00000000;
+
+   /* add uiFromReg */
+   setField(uiFromReg, 0, &uiInstr, 0, 5);
+
+   /* add uiToReg */
+   setField(uiToReg, 0, &uiInstr, 5, 5);
+
+   /* change bits from 11 to 10 to 11*/
+   setField(3, 0, &uiInstr, 10, 2);
+
+   /* change bits from 29 to 22 to 11100100 */
+   setField(228, 0, &uiInstr, 22, 8);
+
+
+   return uiInstr;
+
+
 }
 
 /*--------------------------------------------------------------------*/
@@ -70,4 +118,16 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
 {
    /* Your code here */
 
+   unsigned int uiInstr;
+
+   uiInstr = 0x00000000;
+
+   /* change bits from 28 to 26 to 101 */
+   setField(5, 0, &uiInstr, 26, 3);
+
+   uiDisp = (unsigned int)(ulAddr - ulAddrOfThisInstr);
+
+   setField(uiDisp, 2, &uiInstr, 0, 26);
+
+   return uiInstr;
 }
