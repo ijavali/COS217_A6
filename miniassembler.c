@@ -89,7 +89,6 @@ unsigned int MiniAssembler_strb(unsigned int uiFromReg,
    /* Your code here */
 
    unsigned int uiInstr;
-   unsigned int uiDisp;
 
    uiInstr = 0x00000000;
 
@@ -119,6 +118,7 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
    /* Your code here */
 
    unsigned int uiInstr;
+   unsigned int uiDisp;
 
    uiInstr = 0x00000000;
 
