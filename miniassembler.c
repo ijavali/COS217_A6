@@ -19,7 +19,6 @@ static void setField(unsigned int uiSrc, unsigned int uiSrcStartBit,
                      unsigned int *puiDest, unsigned int uiDestStartBit,
                      unsigned int uiNumBits)
 {
-   /* Your code here */
 
    /* the amount of bits needed to be shifted to obtain wanted bits from uiSrc*/
    unsigned int uiShiftAmount;
@@ -44,7 +43,6 @@ static void setField(unsigned int uiSrc, unsigned int uiSrcStartBit,
 
 unsigned int MiniAssembler_mov(unsigned int uiReg, int iImmed)
 {
-   /* Your code here */
 
    unsigned int uiInstr;
 
@@ -94,7 +92,6 @@ unsigned int MiniAssembler_adr(unsigned int uiReg, unsigned long ulAddr,
 unsigned int MiniAssembler_strb(unsigned int uiFromReg,
    unsigned int uiToReg)
 {
-   /* Your code here */
 
    unsigned int uiInstr;
 
@@ -118,7 +115,6 @@ unsigned int MiniAssembler_strb(unsigned int uiFromReg,
 unsigned int MiniAssembler_b(unsigned long ulAddr,
    unsigned long ulAddrOfThisInstr)
 {
-   /* Your code here */
 
    unsigned int uiInstr;
    unsigned int uiDisp;

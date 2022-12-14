@@ -1,3 +1,62 @@
+Data
+
+Address     Content     Description
+0x420044    0x00000044  Grade is initialized to 'D'
+
+BSS
+
+Address     Description
+0x420058    'I'
+0x420059    's'
+0x42005A    'h'
+0x42005B    'a'
+0x42005C    'a'
+0x42005D    'n'
+0x42005E    ' '
+0x42005F    'a'
+0x420060    'n'
+0x420061    'd'
+0x420062    ' '
+0x420063    'J'
+0x420064    'a'
+0x420065    'c'
+0x420066    'k'
+0x420067    '\0'
+0x420068    mov byte 1
+0x420069    mov byte 2
+0x42006A    mov byte 3
+0x42006B    mov byte 4
+0x42006C    adr byte 1
+0x42006D    adr byte 2
+0x42006E    adr byte 3
+0x42006F    adr byte 4
+0x420070    strb byte 1
+0x420071    strb byte 2
+0x420072    strb byte 3
+0x420073    strb byte 4
+0x420074    b byte 1
+0x420075    b byte 2
+0x420076    b byte 3
+0x420077    b byte 4
+0x420078 to 0x420087 is 16 bytes of filler. 
+
+
+Stack
+
+Offset      Description
+0           x19 
+8           x20
+16          x21
+24          x30 (readString)
+32          buf [0, 7]
+40          buf [8, 15]
+48          buf [16, 23]
+56          buf [24, 31]
+64          buf [32, 39]
+72          buf [40, 47]
+80          x30 (getName)
+
+
 // Prolog
 0x400780 <readString>:	sub	sp, sp, #0x50
 0x400784 <readString+4>:	stp	x19, x20, [sp]
