@@ -21,7 +21,7 @@ int main() {
     fprintf(psFile, "Ishaan and Jack");
     /* Writes 00000000 = 1 byte*/
     fprintf(psFile, "%c", '\0'); 
-    /* 32 bytes */
+    /* 32 filler bytes */
     fprintf(psFile, "12345678123456781234567812345678");
 
 
