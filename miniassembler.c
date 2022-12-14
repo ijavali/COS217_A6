@@ -20,16 +20,21 @@ static void setField(unsigned int uiSrc, unsigned int uiSrcStartBit,
                      unsigned int uiNumBits)
 {
    /* Your code here */
+
    /* the amount of bits needed to be shifted to obtain wanted bits from uiSrc*/
    unsigned int uiShiftAmount;
    uiShiftAmount = 32 - uiNumBits;
+
    /*get rid of all bits that are right of uiSrcStartBit*/
    uiSrc = uiSrc >> uiSrcStartBit;
+
    /*obtain only the wanted bits taken from uiSrc */
    uiSrc = uiSrc << uiShiftAmount;
    uiSrc = uiSrc >> uiShiftAmount;
+
    /*move uiSrc such that it aligns with puiDest starting at uiDestStartBit*/
    uiSrc = uiSrc << uiDestStartBit;
+   
    /*set uiNumBits starting at uiDestStartBit with uiSrc*/
    *puiDest = uiSrc | *puiDest;
 
@@ -45,15 +50,18 @@ unsigned int MiniAssembler_mov(unsigned int uiReg, int iImmed)
 
    uiInstr = 0x00000000;
 
-   /* add register */
-   setField(uiReg, 0, &uiInstr, 0, 5);
-
-   /* change bits from 30 to 21 to 10 100101 00 */
+   /* change bits from 30 to 21 to 10 100101 00, so
+   uiInstr is the base instruction code */
    setField(660, 0, &uiInstr, 21, 10);
 
-   /* change bits from 20 to 5 to iImmed*/
+   /* change bits from 20 to 5 to iImmed, the value to 
+   be moved into the register*/
    setField(iImmed, 0, &uiInstr, 5, 16);
 
+   /* add register to be inserted in instruction */
+   setField(uiReg, 0, &uiInstr, 0, 5);
+
+   
    return uiInstr;
 
 }
@@ -90,12 +98,13 @@ unsigned int MiniAssembler_strb(unsigned int uiFromReg,
 
    unsigned int uiInstr;
 
+   /* Base Instruction Code */
    uiInstr = 0x39000000;
 
-   /* add uiFromReg */
+   /* add uiFromReg to instruction */
    setField(uiFromReg, 0, &uiInstr, 0, 5);
 
-   /* add uiToReg */
+   /* add uiToReg to instruction */
    setField(uiToReg, 0, &uiInstr, 5, 5);
 
 
@@ -116,11 +125,13 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
 
    uiInstr = 0x00000000;
 
-   /* change bits from 28 to 26 to 101 */
+   /* change bits from 28 to 26 to 101, so that uiInstr is 
+   now the base instruction code */
    setField(5, 0, &uiInstr, 26, 3);
 
+   /* displacement to be inserted, and since it must be a multiple
+   of four, least two significant bits aren't needed*/
    uiDisp = (unsigned int)(ulAddr - ulAddrOfThisInstr);
-
    setField(uiDisp, 2, &uiInstr, 0, 26);
 
    return uiInstr;
