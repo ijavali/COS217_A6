@@ -12,7 +12,7 @@
 /* 
 main does not receive any parameters or input from stdin or 
 other streams. It does not write to stdout. It uses fprintf 
-to write 49 bytes to a file called dataB and returns 0.
+to write 56 bytes to a file called dataB and returns 0.
  */
 int main() {
     FILE *psFile;
