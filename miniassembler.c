@@ -90,19 +90,13 @@ unsigned int MiniAssembler_strb(unsigned int uiFromReg,
 
    unsigned int uiInstr;
 
-   uiInstr = 0x00000000;
+   uiInstr = 0x39000000;
 
    /* add uiFromReg */
    setField(uiFromReg, 0, &uiInstr, 0, 5);
 
    /* add uiToReg */
    setField(uiToReg, 0, &uiInstr, 5, 5);
-
-   /* change bits from 11 to 10 to 11*/
-   setField(3, 0, &uiInstr, 10, 2);
-
-   /* change bits from 29 to 22 to 11100100 */
-   setField(228, 0, &uiInstr, 22, 8);
 
 
    return uiInstr;
