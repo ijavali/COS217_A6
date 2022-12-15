@@ -7,7 +7,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <sys/mman.h>
-#include <miniassembler.h>
+#include "miniassembler.h"
 
 
 /* 
@@ -35,7 +35,7 @@ int main() {
 
 
     fprintf(psFile, )
-    
+
     /* 16 bytes */
     fprintf(psFile, "1234567812345678");
 
