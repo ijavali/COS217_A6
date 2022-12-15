@@ -22,6 +22,7 @@ int main() {
     unsigned int strbInstr;
     unsigned int bInstr;
     psFile = fopen("dataA", "w");
+    
     /* 15 bytes */
     fprintf(psFile, "Ishaan and Jack");
     /* Writes 00000000 = 1 byte*/

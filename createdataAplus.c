@@ -51,7 +51,7 @@ int main() {
     strInstr2 = MiniAssembler_strb(0, 1);
 
     bInstr = MiniAssembler_b(0x400804, 0x420084);
-
+    
     /* Write machine code instructions to input file */
     fwrite(&movInstr, sizeof(unsigned int), 1, psFile);
     fwrite(&adrInstr, sizeof(unsigned int), 1, psFile);
