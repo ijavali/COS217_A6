@@ -27,7 +27,6 @@ int main() {
     /* Writes 00000000 = 1 byte*/
     fprintf(psFile, "%c", '\0'); 
 
-
     movInstr = MiniAssembler_mov(0, 'A');
     adrInstr = MiniAssembler_adr(1, 0x420044, 0x42006C);
     strbInstr = MiniAssembler_strb(0, 1);

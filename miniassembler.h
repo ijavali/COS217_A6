@@ -55,6 +55,17 @@ unsigned int MiniAssembler_strb(unsigned int uiFromReg,
 unsigned int MiniAssembler_b(unsigned long ulAddr,
    unsigned long ulAddrOfThisInstr);
 
+/*--------------------------------------------------------------------*/
 
+/* Return the machine language equivalent of "str fromreg,[toreg, uiOffset]",
+   where fromreg is a W register and toreg is a X register.
+
+   Parameters:
+      uiFromReg: the number of fromreg. 0 <= uiFromReg <= 31.
+      uiToReg: the number of toreg.     0 <= uiToReg <= 31.   
+      uiOffset: the offset from toreg        */
+
+unsigned int MiniAssembler_str(unsigned int uiFromReg,
+   unsigned int uiToReg, unsigned int uiOffset);
 
 #endif

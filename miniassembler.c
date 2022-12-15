@@ -81,6 +81,8 @@ unsigned int MiniAssembler_adr(unsigned int uiReg, unsigned long ulAddr,
    /* displacement to be split into immlo and immhi and inserted */
    uiDisp = (unsigned int)(ulAddr - ulAddrOfThisInstr);
 
+/* 1000 0100 10010 10 101 0100 */
+
    setField(uiDisp, 0, &uiInstr, 29, 2);
    setField(uiDisp, 2, &uiInstr, 5, 19);
 
@@ -131,4 +133,28 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
    setField(uiDisp, 2, &uiInstr, 0, 26);
 
    return uiInstr;
+}
+
+unsigned int MiniAssembler_str(unsigned int uiFromReg,
+   unsigned int uiToReg, unsigned int uiOffset)
+{
+
+   unsigned int uiInstr;
+
+   /* Base Instruction Code */
+   uiInstr = 0xB9000000;
+
+   /* set imm12 as uiOffset*/
+   setField(uiOffset, 0, &uiInstr, 10, 12);
+
+   /* add uiFromReg to instruction */
+   setField(uiFromReg, 0, &uiInstr, 0, 5);
+
+   /* add uiToReg to instruction */
+   setField(uiToReg, 0, &uiInstr, 5, 5);
+
+
+   return uiInstr;
+
+
 }
