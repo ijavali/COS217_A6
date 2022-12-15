@@ -136,3 +136,30 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
 
    return uiInstr;
 }
+
+/*--------------------------------------------------------------------*/
+
+unsigned int MiniAssembler_str(unsigned int uiFromReg,
+   unsigned int uiToReg, unsigned int uiOffset)
+{
+   /* Your code here */
+
+   unsigned int uiInstr;
+
+   /* Base Instruction Code */
+   uiInstr = 0xB9000000;
+
+   /* set imm12 as uiOffset*/
+   setField(uiOffset, 0, &uiInstr, 10, 12);
+
+   /* add uiFromReg to instruction */
+   setField(uiFromReg, 0, &uiInstr, 0, 5);
+
+   /* add uiToReg to instruction */
+   setField(uiToReg, 0, &uiInstr, 5, 5);
+
+
+   return uiInstr;
+
+
+}
