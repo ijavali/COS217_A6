@@ -30,8 +30,10 @@ int main() {
     fprintf(psFile, "I&J");
     fprintf(psFile, "%c", '\0'); 
 
-    movAInstr = MiniAssembler_mov(0, 'A');
-    blInstr = MiniAssembler_bl(0x400670, 0x420060);
+    movAInstr = MiniAssembler_mov(1, 'A');
+
+    /* bl printf("%c", grade)  */
+    blInstr = MiniAssembler_bl(0x400600, 0x420060);
 
     movInstr = MiniAssembler_mov(0, '+');
     adrInstr = MiniAssembler_adr(1, 0x420044, 0x420068);
@@ -40,8 +42,8 @@ int main() {
 
     /* Write machine code instructions to input file */
     fwrite(&movAInstr, sizeof(unsigned int), 1, psFile);
-    fwrite(&movAInstr, sizeof(unsigned int), 1, psFile);
-    /* fwrite(&blInstr, sizeof(unsigned int), 1, psFile); */
+    /* fwrite(&movAInstr, sizeof(unsigned int), 1, psFile); */
+    fwrite(&blInstr, sizeof(unsigned int), 1, psFile);
     fwrite(&movInstr, sizeof(unsigned int), 1, psFile);
     fwrite(&adrInstr, sizeof(unsigned int), 1, psFile);
     fwrite(&strbInstr, sizeof(unsigned int), 1, psFile);
@@ -66,10 +68,3 @@ int main() {
     fclose(psFile);
     return 0;
 }
-
-/* 
-w0 = 0x00000061
-
-printf(0x00000061)
-printf("A")
- */
