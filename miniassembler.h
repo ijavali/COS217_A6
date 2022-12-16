@@ -68,4 +68,7 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
 unsigned int MiniAssembler_str(unsigned int uiFromReg,
    unsigned int uiToReg, unsigned int uiOffset);
 
+unsigned int MiniAssembler_bl(unsigned long ulAddr,
+   unsigned long ulAddrOfThisInstr);
+
 #endif
