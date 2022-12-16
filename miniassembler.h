@@ -65,9 +65,6 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
       uiToReg: the number of toreg.     0 <= uiToReg <= 31.   
       uiOffset: the offset from toreg        */
 
-unsigned int MiniAssembler_str(unsigned int uiFromReg,
-   unsigned int uiToReg, unsigned int uiOffset);
-
 unsigned int MiniAssembler_bl(unsigned long ulAddr,
    unsigned long ulAddrOfThisInstr);
 
