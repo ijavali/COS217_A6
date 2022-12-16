@@ -57,13 +57,13 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
 
 /*--------------------------------------------------------------------*/
 
-/* Return the machine language equivalent of "str fromreg,[toreg, uiOffset]",
-   where fromreg is a W register and toreg is a X register.
+/* Return the machine language equivalent of "bl addr".
 
    Parameters:
-      uiFromReg: the number of fromreg. 0 <= uiFromReg <= 31.
-      uiToReg: the number of toreg.     0 <= uiToReg <= 31.   
-      uiOffset: the offset from toreg        */
+      ulAddr: the address denoted by addr, that is, the address to
+         which the branch should occur (must be a multiple of 4).
+      ulAddrOfThisInstr: the address of the bl instruction itself
+         (must be a multiple of 4).                                   */
 
 unsigned int MiniAssembler_bl(unsigned long ulAddr,
    unsigned long ulAddrOfThisInstr);
