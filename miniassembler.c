@@ -163,3 +163,27 @@ unsigned int MiniAssembler_str(unsigned int uiFromReg,
 
 
 }
+
+/*--------------------------------------------------------------------*/
+
+unsigned int MiniAssembler_bl(unsigned long ulAddr,
+   unsigned long ulAddrOfThisInstr)
+{
+   /* Your code here */
+
+   unsigned int uiInstr;
+   unsigned int uiDisp;
+
+   uiInstr = 0x90000000;
+
+   /* change bits from 27 to 26 to 01, so that uiInstr is 
+   now the base instruction code */
+   setField(1, 0, &uiInstr, 26, 2);
+
+   /* displacement to be inserted, and since it must be a multiple
+   of four, least two significant bits aren't needed*/
+   uiDisp = (unsigned int)(ulAddr - ulAddrOfThisInstr);
+   setField(uiDisp, 2, &uiInstr, 0, 26);
+
+   return uiInstr;
+}

@@ -1,25 +1,14 @@
 Assignment 6 readme File
 
-
-According to 18 U.S. Code 1030, if you were to use a buffer overrun attack to 
-commit fraud or related activity in connection with computers, 
-but did not attempt to cause death and did not knowingly or recklessly cause death, 
-then you could receive a maximum penalty of 10 years in prison.
-
-According to 18 U.S. Code 1030, if you were to use a buffer overrun attack to 
-commit fraud or related activity in connection with computers,
-and attempted to cause death or knowingly or recklessly caused death, 
-then you could receive a maximum penalty of a lifetime in prison.
-
 ------------------------------------------------------------------------
 Student 1: What is your name?
 
-
+Ishaan Javali
 
 ------------------------------------------------------------------------
 Student 2: What is your name?
 
-
+Jack Zhang
 
 ------------------------------------------------------------------------
 Student 1: What authorized sources of information did you use to
@@ -29,7 +18,10 @@ in the file ~cos217/AuthorizedSourcesList ) to this section of the
 readme file, and edit it as appropriate.
 
 
-
+Lecture Notes and Precept Notes, the course's website, 
+the course's textbooks (King and The Practice of Programming), 
+the Intro COS Lab TA's,
+and the course's current staff members outside of class time through office hours.
 
 ------------------------------------------------------------------------
 Student 2: What authorized sources of information did you use to
@@ -38,7 +30,10 @@ information given in the "Policies" web page (also available on armlab
 in the file ~cos217/AuthorizedSourcesList ) to this section of the
 readme file, and edit it as appropriate.
 
-
+Lecture Notes and Precept Notes, the course's website, 
+the course's textbooks (King and The Practice of Programming), 
+the Intro COS Lab TA's,
+and the course's current staff members outside of class time through office hours.
 
 ------------------------------------------------------------------------
 Student 1: What unauthorized sources of information did you use to
@@ -52,7 +47,7 @@ nature of the interaction, may additionally require the interaction
 being reported to the Committee on Discipline. Write "None" if you used
 no unauthorized sources of information.
 
-
+None
 
 ------------------------------------------------------------------------
 Student 2: What unauthorized sources of information did you use to
@@ -66,7 +61,7 @@ nature of the interaction, may additionally require the interaction
 being reported to the Committee on Discipline. Write "None" if you used
 no unauthorized sources of information.
 
-
+None
 
 ------------------------------------------------------------------------
 Student 1: What is your assessment of the assignment? Was it helpful?
@@ -90,6 +85,14 @@ particular, what bugs are in your submission?
 ------------------------------------------------------------------------
 What are your sentences from Step 1?
 
+According to 18 U.S. Code 1030, if you were to use a buffer overrun attack to 
+commit fraud or related activity in connection with computers, 
+but did not attempt to cause death and did not knowingly or recklessly cause death, 
+then you could receive a maximum penalty of 10 years in prison.
 
+According to 18 U.S. Code 1030, if you were to use a buffer overrun attack to 
+commit fraud or related activity in connection with computers,
+and attempted to cause death or knowingly or recklessly caused death, 
+then you could receive a maximum penalty of a lifetime in prison.
 
 ------------------------------------------------------------------------
