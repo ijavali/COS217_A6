@@ -20,7 +20,7 @@ readme file, and edit it as appropriate.
 
 Lecture Notes and Precept Notes, the course's website, 
 the course's textbooks (King and The Practice of Programming), 
-the Intro COS Lab TA's,
+the Intro COS Lab TA's, ARM Architecture Reference,
 and the course's current staff members outside of class time through office hours.
 
 ------------------------------------------------------------------------
@@ -32,7 +32,7 @@ readme file, and edit it as appropriate.
 
 Lecture Notes and Precept Notes, the course's website, 
 the course's textbooks (King and The Practice of Programming), 
-the Intro COS Lab TA's,
+the Intro COS Lab TA's, ARM Architecture Reference,
 and the course's current staff members outside of class time through office hours.
 
 ------------------------------------------------------------------------
@@ -73,14 +73,23 @@ Was it fun?
 Student 2: What is your assessment of the assignment? Was it helpful?
 Was it fun?
 
-
+The assignment was really fun. I thought it was a great assignment for 
+teaching different parts of memory. 
 
 ------------------------------------------------------------------------
 (optional) What information can you provide about your submission that
 will help your grader to grade it in the most favorable light? In
 particular, what bugs are in your submission?
 
-
+We believe that we have the correct logic for the A+ attack but struggled
+to find a pointer to the format string %c. We planned to first move a pointer
+to %c into w0, and then move 'A' into w1. We'd then bl printf, as we found
+in the text section of the memory map and attempted in createdataAplus.c, with
+w0 and w1 being the parameters. That would print out 'A'. We'd then follow, 
+the exact same procedure for the A attack, but this time with the character
+'+', adjusting the filler bytes and instruction addresses accordingly. The
+main issue was not being able to find %c alone, since its address had %c and 
+multiple characters following that, which we did not know how to remove. 
 
 ------------------------------------------------------------------------
 What are your sentences from Step 1?
